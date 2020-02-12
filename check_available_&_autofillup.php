@@ -505,3 +505,16 @@ if (isset($_POST['packageAddSubmit'])) {
 
     }); // document ready function
 </script>
+
+
+// in ajax file for check availability
+<?php if (isset($_POST['check'])) {
+
+        $checkIp = $_POST['check'];
+        $findData = $obj->Total_Count('tbl_agent', "`ip` = '$checkIp'");
+        if ($findData == 0) {
+            echo '<p class="bg-success"><span  class="glyphicon glyphicon-remove text-success"></span> OK, You can proceed. </p>';
+        } else {
+            echo '<p class="bg-danger"><span  class="glyphicon glyphicon-remove text-danger"></span> Sorry this Client Id is already exists. </p>';
+        }
+    } ?>
